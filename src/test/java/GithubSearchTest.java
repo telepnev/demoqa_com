@@ -3,9 +3,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.itemWithText;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class GithubSearchTest {
 
@@ -21,6 +20,20 @@ public class GithubSearchTest {
     public void shouldFindSelenideRepositoryTest() {
         open("https://github.com/");
 
+        String expectedJunitText = """
+                @ExtendWith({SoftAssertsExtension.class})
+                class Tests {
+                  @Test
+                  void test() {
+                    Configuration.assertionMode = SOFT;
+                    open("page.html");
+                
+                    $("#first").should(visible).click();
+                    $("#second").should(visible).click();
+                  }
+                }
+                """;
+
         $("[placeholder='Search or jump to...']").click();
         $("#query-builder-test").setValue("Selenide").pressEnter();
         $("[data-testid='results-list']").shouldHave(text("Selenide"));
@@ -29,9 +42,7 @@ public class GithubSearchTest {
         $$(".markdown-body ul li a").shouldHave(itemWithText("Soft assertions"));
 
         $$(".markdown-body ul li a").findBy(text("Soft assertions")).click();
-        $$(".heading-element").shouldHave(itemWithText("3. Using JUnit5 extend test class:"));
-        $("#user-content-3-using-junit5-extend-test-class").parent().shouldBe(visible);
-        $$(".markdown-heading").get(6).shouldBe(exist);
+        $("#wiki-body").shouldHave(text(expectedJunitText));
 
     }
 }
