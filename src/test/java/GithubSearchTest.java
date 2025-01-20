@@ -18,8 +18,6 @@ public class GithubSearchTest {
 
     @Test
     public void shouldFindSelenideRepositoryTest() {
-        open("https://github.com/");
-
         String expectedJunitText = """
                 @ExtendWith({SoftAssertsExtension.class})
                 class Tests {
@@ -34,13 +32,13 @@ public class GithubSearchTest {
                 }
                 """;
 
+        open("https://github.com/");
         $("[placeholder='Search or jump to...']").click();
         $("#query-builder-test").setValue("Selenide").pressEnter();
         $("[data-testid='results-list']").shouldHave(text("Selenide"));
         $$("[data-testid='results-list'] span").findBy(text("Selenide")).click();
         $("[data-content='Wiki']").click();
         $$(".markdown-body ul li a").shouldHave(itemWithText("Soft assertions"));
-
         $$(".markdown-body ul li a").findBy(text("Soft assertions")).click();
         $("#wiki-body").shouldHave(text(expectedJunitText));
 
