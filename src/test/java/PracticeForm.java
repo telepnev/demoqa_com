@@ -21,6 +21,8 @@ public class PracticeForm {
     @Test
     public void practiceFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
         $("#firstName").setValue("Evgen");
         $("#lastName").setValue("Pupkin");
@@ -36,21 +38,15 @@ public class PracticeForm {
         $("#subjectsContainer").click();
         $("#subjectsInput").setValue("Art").pressEnter();
         $x("//label[text()='Music']").click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/Screenshot.png"));
+        $("#uploadPicture").uploadFromClasspath("Screenshot.png");
         $("#currentAddress").setValue("Evgen str. Red Will");
         $("#submit").scrollTo();
 
         $("#state").click();
         $x("//div[text()='Uttar Pradesh']").click();
         $("#city").click();
-        $(byText("Agra")).click();
+        $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
- /*
-        // примеры
-          $$("div").findBy(text("Agra")).click();
-         $x("//div[text()='Agra']").click();
-*/
-
 
         // assertions table
         $(".table").$(byText("Student Name")).parent().shouldHave(text("Evgen Pupkin"));
