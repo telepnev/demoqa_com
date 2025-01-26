@@ -1,3 +1,5 @@
+package dz.dz4;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -11,7 +13,7 @@ public class GithubSearchTest {
     @BeforeAll
     static void setUp() {
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.baseUrl = "https://github.com/";
         Configuration.pageLoadStrategy = "eager";
     }
 
