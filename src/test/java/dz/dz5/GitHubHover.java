@@ -1,6 +1,7 @@
 package dz.dz5;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.DragAndDropOptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,9 @@ public class GitHubHover {
     @Test
     public void dragAndDropTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        // - так будет работать
+       // $("#column-a").dragAndDrop(DragAndDropOptions.to($("#column-b")));
+
         actions().dragAndDrop($("#column-a"), $("#column-b")).perform();
         $("#column-a").shouldHave(text("B"));
     }
