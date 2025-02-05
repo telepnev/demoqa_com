@@ -1,4 +1,4 @@
-package dz.dz6pageobj;
+package dz.dz6pageobj.tests;
 
 import dz.dz6pageobj.base.BaseTest;
 import dz.dz6pageobj.pages.CheckTextBoxPage;

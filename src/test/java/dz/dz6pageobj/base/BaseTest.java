@@ -5,6 +5,8 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+
 public class BaseTest {
     @BeforeAll
     static void setUp() {
@@ -17,4 +19,11 @@ public class BaseTest {
     public void tearDown() {
         Selenide.closeWebDriver();
     }
+
+
+    static public void deletBaner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+    }
+
 }

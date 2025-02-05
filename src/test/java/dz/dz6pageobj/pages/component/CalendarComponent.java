@@ -1,7 +1,8 @@
 package dz.dz6pageobj.pages.component;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import org.openqa.selenium.Keys;
+
+import static com.codeborne.selenide.Selenide.*;
 
 public class CalendarComponent {
 
@@ -10,5 +11,12 @@ public class CalendarComponent {
         $(".react-datepicker__month-select").selectOptionContainingText(month);
         $(".react-datepicker__year-select").selectOptionContainingText(year);
         $x("//div[@class='react-datepicker__week']/div[text()='" + day + "']").click();
+    }
+
+    public void clearDate() {
+        $("#dateOfBirthInput").click();
+        for (int i = 0; i < 11; i++) {
+            actions().sendKeys(Keys.BACK_SPACE).perform();
+        }
     }
 }
