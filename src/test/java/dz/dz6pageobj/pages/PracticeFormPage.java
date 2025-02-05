@@ -1,7 +1,6 @@
 package dz.dz6pageobj.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import dz.dz6pageobj.pages.component.CalendarComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -14,19 +13,9 @@ public class PracticeFormPage {
     protected SelenideElement userEmail = $("#userEmail");
     protected SelenideElement userNumber = $("#userNumber");
 
-
-    CalendarComponent calendarComp = new CalendarComponent();
-
-    public void setDateOfBirth(String day, String month, String year) {
-        calendarComp.setDate(day, month, year);
-    }
-
     public void openPracticeFormPage() {
         open(url);
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
     }
-
 
     public void submit() {
         $(submit).click();
@@ -56,7 +45,6 @@ public class PracticeFormPage {
         $("#subjectsContainer").click();
         $("#subjectsInput").setValue(subject).pressEnter();
     }
-
 
 
     public void setMobile(String phone) {
