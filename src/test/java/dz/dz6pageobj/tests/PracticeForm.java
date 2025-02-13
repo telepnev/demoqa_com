@@ -4,48 +4,65 @@ import dz.dz6pageobj.base.BaseTest;
 import dz.dz6pageobj.pages.CheckPracticeFormPage;
 import dz.dz6pageobj.pages.PracticeFormPage;
 import dz.dz6pageobj.pages.component.CalendarComponent;
+import dz.dz6pageobj.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class PracticeForm extends BaseTest {
     private static PracticeFormPage practiceFormPage;
     private static CalendarComponent calendarComponent;
     private static CheckPracticeFormPage checkPracticeFormPage;
+    private static GenerateRandomDate generateRandomDate;
+
 
     @Test
     public void practiceFormTest() {
         practiceFormPage = new PracticeFormPage();
         calendarComponent = new CalendarComponent();
+        generateRandomDate = new GenerateRandomDate();
+
+        String firstName = generateRandomDate.getFirstName;
+        String lastName = generateRandomDate.getLastName;
+        String email = generateRandomDate.getUserEmail;
+        String gender = generateRandomDate.getGender;
+        String phone = generateRandomDate.getUserPhoneNumber;
+        String day = generateRandomDate.getDay;
+        String month = generateRandomDate.getMonth;
+        String year = generateRandomDate.getYear;
+        String state = generateRandomDate.state;
+        String city = generateRandomDate.selectCity(state);
+        String subject = generateRandomDate.getSubject;
+        String hobbies = generateRandomDate.getHobbies;
+        String picture = generateRandomDate.getPicture;
+        String currentAddress = generateRandomDate.getCurrentAddress;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
-        practiceFormPage.setFio("Evgen", "Pupkin");
-        practiceFormPage.setEmail("pupkin@mail.com");
-        practiceFormPage.setGender("Male");
-        practiceFormPage.setMobile("1234567890");
-        calendarComponent.setDate("9", "May", "1945");
-        practiceFormPage.setSubjects("Art");
-        practiceFormPage.setHobbiesAsMusic();
-        practiceFormPage.upLoadImg("Screenshot.png");
-        practiceFormPage.setCurrentAddress("Evgen str. Red Will");
-        practiceFormPage.setStateandCity("Uttar Pradesh", "Agra");
+        practiceFormPage.setFio(firstName, lastName);
+        practiceFormPage.setEmail(email);
+        practiceFormPage.setGender(gender);
+        practiceFormPage.setMobile(phone);
+        calendarComponent.setDate(day, month, year);
+        practiceFormPage.setSubjects(subject);
+        practiceFormPage.setHobbies(hobbies);
+        practiceFormPage.upLoadImg(picture);
+        practiceFormPage.setCurrentAddress(currentAddress);
+        practiceFormPage.setStateandCity(state, city);
         practiceFormPage.submit();
 
         // assertions table
         checkPracticeFormPage = new CheckPracticeFormPage();
         checkPracticeFormPage.modalWindowShouldAppear();
         checkPracticeFormPage
-                .checkStudentName("Evgen Pupkin")
-                .checkStudentEmail("pupkin@mail.com")
-                .checkGender("Male")
-                .checkMobile("1234567890")
-                .checkDateofBirth("9 May,1945")
-                .checkSubjects("Art")
-                .checkHobbies("Music")
-                .checkPicture("Screenshot.png")
-                .checkAddress("Evgen str. Red Will")
-                .checkStateandCity("Uttar Pradesh Agra");
+                .checkStudentName(firstName + " " + lastName)
+                .checkStudentEmail(email)
+                .checkGender(gender)
+                .checkMobile(phone)
+                .checkDateofBirth(day + " " + month + "," + year)
+                .checkSubjects(subject)
+                .checkHobbies(hobbies)
+                .checkPicture(picture)
+                .checkAddress(currentAddress)
+                .checkStateandCity(state + " " + city);
         checkPracticeFormPage.closeModal();
     }
 
@@ -53,23 +70,35 @@ public class PracticeForm extends BaseTest {
     public void minimumAmountDataTest() {
         practiceFormPage = new PracticeFormPage();
         calendarComponent = new CalendarComponent();
+        generateRandomDate = new GenerateRandomDate();
+
+        String firstName = generateRandomDate.getFirstName;
+        String lastName = generateRandomDate.getLastName;
+        String email = generateRandomDate.getUserEmail;
+        String gender = generateRandomDate.getGender;
+        String phone = generateRandomDate.getUserPhoneNumber;
+        String day = generateRandomDate.getDay;
+        String month = generateRandomDate.getMonth;
+        String year = generateRandomDate.getYear;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
-        practiceFormPage.setFio("Evgen", "Pupkin");
-        practiceFormPage.setGender("Male");
-        practiceFormPage.setMobile("1234567890");
-        calendarComponent.setDate("9", "May", "1945");
+        practiceFormPage.setFio(firstName, lastName);
+        practiceFormPage.setEmail(email);
+        practiceFormPage.setGender(gender);
+        practiceFormPage.setMobile(phone);
+        calendarComponent.setDate(day, month, year);
         practiceFormPage.submit();
 
         // assertions table
         checkPracticeFormPage = new CheckPracticeFormPage();
         checkPracticeFormPage.modalWindowShouldAppear();
         checkPracticeFormPage
-                .checkStudentName("Evgen Pupkin")
-                .checkGender("Male")
-                .checkMobile("1234567890")
-                .checkDateofBirth("9 May,1945");
+                .checkStudentName(firstName + " " + lastName)
+                .checkStudentEmail(email)
+                .checkGender(gender)
+                .checkMobile(phone)
+                .checkDateofBirth(day + " " + month + "," + year);
         checkPracticeFormPage.closeModal();
     }
 
@@ -77,16 +106,29 @@ public class PracticeForm extends BaseTest {
     public void errorTest() {
         practiceFormPage = new PracticeFormPage();
         calendarComponent = new CalendarComponent();
+        generateRandomDate = new GenerateRandomDate();
+
+        String firstName = generateRandomDate.getFirstName;
+        String lastName = generateRandomDate.getLastName;
+        String email = generateRandomDate.getUserEmail;
+        String gender = generateRandomDate.getGender;
+        String phone = generateRandomDate.getUserPhoneNumber;
+        String day = generateRandomDate.getDay;
+        String month = generateRandomDate.getMonth;
+        String year = generateRandomDate.getYear;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
-        practiceFormPage.setFio("Evgen", "Pupkin");
-        practiceFormPage.setGender("Male");
-        practiceFormPage.setMobile("1234567890");
-        calendarComponent.setDate("9", "May", "1945");
+        practiceFormPage.setFio(firstName, lastName);
+        practiceFormPage.setEmail(email);
+        practiceFormPage.setGender(gender);
+        practiceFormPage.setMobile(phone);
+        calendarComponent.setDate(day, month, year);
         calendarComponent.clearDate();
-        // после отчистки поля Даты появляется белый экран
-        practiceFormPage.submit();
+
+        // assertions table
+        checkPracticeFormPage = new CheckPracticeFormPage();
+        checkPracticeFormPage.modalWindowShouldBeVizible();
     }
 
     @Test
