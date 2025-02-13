@@ -2,8 +2,8 @@ package dz.dz6pageobj.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxPage {
     private String url = "/text-box";
@@ -17,8 +17,6 @@ public class TextBoxPage {
 
     public TextBoxPage openTextBoxPage() {
         open(url);
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
         return this;
     }
 
