@@ -37,8 +37,8 @@ public class PracticeFormPage {
         $("#uploadPicture").uploadFromClasspath(fileName);
     }
 
-    public void setHobbiesAsMusic() {
-        $x("//label[text()='Music']").click();
+    public void setHobbies(String hobbies) {
+        $x("//label[text()='" + hobbies + "']").click();
     }
 
     public void setSubjects(String subject) {

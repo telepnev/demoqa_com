@@ -86,4 +86,8 @@ public class CheckPracticeFormPage {
     public void modalWindowShouldAppear() {
         $("#closeLargeModal").should(appear);
     }
+
+    public void modalWindowShouldBeVizible() {
+        $("#closeLargeModal").should(appear);
+    }
 }
