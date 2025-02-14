@@ -8,32 +8,31 @@ import dz.dz6pageobj.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
 
 public class PracticeForm extends BaseTest {
-    private static PracticeFormPage practiceFormPage;
-    private static CalendarComponent calendarComponent;
-    private static CheckPracticeFormPage checkPracticeFormPage;
-    private static GenerateRandomDate generateRandomDate;
+    private static PracticeFormPage practiceFormPage = new PracticeFormPage();
+    ;
+    private static CalendarComponent calendarComponent = new CalendarComponent();
+    ;
+    private static CheckPracticeFormPage checkPracticeFormPage = new CheckPracticeFormPage();
+    private static GenerateRandomDate generateRandomDate = new GenerateRandomDate();
+
+    String firstName = generateRandomDate.getFirstName;
+    String lastName = generateRandomDate.getLastName;
+    String email = generateRandomDate.getUserEmail;
+    String gender = generateRandomDate.getGender;
+    String phone = generateRandomDate.getUserPhoneNumber;
+    String day = generateRandomDate.getDay;
+    String month = generateRandomDate.getMonth;
+    String year = generateRandomDate.getYear;
+    String state = generateRandomDate.state;
+    String city = generateRandomDate.selectCity(state);
+    String subject = generateRandomDate.getSubject;
+    String hobbies = generateRandomDate.getHobbies;
+    String picture = generateRandomDate.getPicture;
+    String currentAddress = generateRandomDate.getCurrentAddress;
 
 
     @Test
     public void practiceFormTest() {
-        practiceFormPage = new PracticeFormPage();
-        calendarComponent = new CalendarComponent();
-        generateRandomDate = new GenerateRandomDate();
-
-        String firstName = generateRandomDate.getFirstName;
-        String lastName = generateRandomDate.getLastName;
-        String email = generateRandomDate.getUserEmail;
-        String gender = generateRandomDate.getGender;
-        String phone = generateRandomDate.getUserPhoneNumber;
-        String day = generateRandomDate.getDay;
-        String month = generateRandomDate.getMonth;
-        String year = generateRandomDate.getYear;
-        String state = generateRandomDate.state;
-        String city = generateRandomDate.selectCity(state);
-        String subject = generateRandomDate.getSubject;
-        String hobbies = generateRandomDate.getHobbies;
-        String picture = generateRandomDate.getPicture;
-        String currentAddress = generateRandomDate.getCurrentAddress;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
@@ -68,18 +67,6 @@ public class PracticeForm extends BaseTest {
 
     @Test
     public void minimumAmountDataTest() {
-        practiceFormPage = new PracticeFormPage();
-        calendarComponent = new CalendarComponent();
-        generateRandomDate = new GenerateRandomDate();
-
-        String firstName = generateRandomDate.getFirstName;
-        String lastName = generateRandomDate.getLastName;
-        String email = generateRandomDate.getUserEmail;
-        String gender = generateRandomDate.getGender;
-        String phone = generateRandomDate.getUserPhoneNumber;
-        String day = generateRandomDate.getDay;
-        String month = generateRandomDate.getMonth;
-        String year = generateRandomDate.getYear;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
@@ -104,18 +91,6 @@ public class PracticeForm extends BaseTest {
 
     @Test
     public void errorTest() {
-        practiceFormPage = new PracticeFormPage();
-        calendarComponent = new CalendarComponent();
-        generateRandomDate = new GenerateRandomDate();
-
-        String firstName = generateRandomDate.getFirstName;
-        String lastName = generateRandomDate.getLastName;
-        String email = generateRandomDate.getUserEmail;
-        String gender = generateRandomDate.getGender;
-        String phone = generateRandomDate.getUserPhoneNumber;
-        String day = generateRandomDate.getDay;
-        String month = generateRandomDate.getMonth;
-        String year = generateRandomDate.getYear;
 
         practiceFormPage.openPracticeFormPage();
         deletBaner();
@@ -125,6 +100,7 @@ public class PracticeForm extends BaseTest {
         practiceFormPage.setMobile(phone);
         calendarComponent.setDate(day, month, year);
         calendarComponent.clearDate();
+        practiceFormPage.submit();
 
         // assertions table
         checkPracticeFormPage = new CheckPracticeFormPage();
@@ -133,7 +109,6 @@ public class PracticeForm extends BaseTest {
 
     @Test
     public void negativeSendFormWithoutData() {
-        practiceFormPage = new PracticeFormPage();
         practiceFormPage.openPracticeFormPage();
         deletBaner();
         practiceFormPage.setFio("", "");

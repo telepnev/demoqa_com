@@ -7,19 +7,17 @@ import dz.dz6pageobj.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
 
 public class TextBox extends BaseTest {
-    private static TextBoxPage textBoxPage;
-    private static CheckTextBoxPage checkTextBoxPage;
-    private static GenerateRandomDate generateRandomDate;
+    private static TextBoxPage textBoxPage = new TextBoxPage();
+    private static CheckTextBoxPage checkTextBoxPage = new CheckTextBoxPage();;
+    private static GenerateRandomDate generateRandomDate = new GenerateRandomDate();
+
+    String firstName = generateRandomDate.getFirstName;
+    String email = generateRandomDate.getUserEmail;
+    String currentAddress = generateRandomDate.getCurrentAddress;
+    String permanentAddress = "Moscow village " + generateRandomDate.getCurrentAddress;
 
     @Test
     public void textBoxTest() {
-        textBoxPage = new TextBoxPage();
-        generateRandomDate = new GenerateRandomDate();
-
-        String firstName = generateRandomDate.getFirstName;
-        String email = generateRandomDate.getUserEmail;
-        String currentAddress = generateRandomDate.getCurrentAddress;
-        String permanentAddress = "Moscow village " + generateRandomDate.getCurrentAddress;
 
         textBoxPage.openTextBoxPage()
                 .setName(firstName)
@@ -28,7 +26,6 @@ public class TextBox extends BaseTest {
                 .setPermanentAddress(permanentAddress)
                 .submit();
 
-        checkTextBoxPage = new CheckTextBoxPage();
         checkTextBoxPage.checkName(firstName)
                 .checkEmail(email)
                 .checkCurrentAddress(currentAddress)
