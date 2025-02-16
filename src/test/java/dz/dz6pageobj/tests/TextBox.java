@@ -7,9 +7,9 @@ import dz.dz6pageobj.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
 
 public class TextBox extends BaseTest {
-    private static TextBoxPage textBoxPage = new TextBoxPage();
-    private static CheckTextBoxPage checkTextBoxPage = new CheckTextBoxPage();;
-    private static GenerateRandomDate generateRandomDate = new GenerateRandomDate();
+    private TextBoxPage textBoxPage = new TextBoxPage();
+    private CheckTextBoxPage checkTextBoxPage = new CheckTextBoxPage();
+    private GenerateRandomDate generateRandomDate = new GenerateRandomDate();
 
     String firstName = generateRandomDate.getFirstName;
     String email = generateRandomDate.getUserEmail;

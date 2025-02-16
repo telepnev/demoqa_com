@@ -8,12 +8,10 @@ import dz.dz6pageobj.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
 
 public class PracticeForm extends BaseTest {
-    private static PracticeFormPage practiceFormPage = new PracticeFormPage();
-    ;
-    private static CalendarComponent calendarComponent = new CalendarComponent();
-    ;
-    private static CheckPracticeFormPage checkPracticeFormPage = new CheckPracticeFormPage();
-    private static GenerateRandomDate generateRandomDate = new GenerateRandomDate();
+    private PracticeFormPage practiceFormPage = new PracticeFormPage();
+    private CalendarComponent calendarComponent = new CalendarComponent();
+    private CheckPracticeFormPage checkPracticeFormPage = new CheckPracticeFormPage();
+    private GenerateRandomDate generateRandomDate = new GenerateRandomDate();
 
     String firstName = generateRandomDate.getFirstName;
     String lastName = generateRandomDate.getLastName;
