@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag("regress")
+
 public class PracticeForm extends BaseTest {
     private PracticeFormPage practiceFormPage = new PracticeFormPage();
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -61,7 +61,7 @@ public class PracticeForm extends BaseTest {
         );
     }
 
-
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -76,7 +76,6 @@ public class PracticeForm extends BaseTest {
                                                     String gender,
                                                     String phone,
                                                     String day, String month, String year) {
-
 
 
         step("Заполняем имя  и фамилию ", () -> {
@@ -114,7 +113,7 @@ public class PracticeForm extends BaseTest {
 
     // CsvFileSource
 
-
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -163,6 +162,7 @@ public class PracticeForm extends BaseTest {
     }
 
     @Test
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -200,7 +200,7 @@ public class PracticeForm extends BaseTest {
 
     // CsvSource
 
-
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -231,6 +231,7 @@ public class PracticeForm extends BaseTest {
     }
 
     @Test
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
