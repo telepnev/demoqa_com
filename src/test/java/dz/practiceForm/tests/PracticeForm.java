@@ -14,12 +14,12 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import static io.qameta.allure.Allure.step;
 
 import java.util.stream.Stream;
 
-import static io.qameta.allure.Allure.step;
 
-
+@Tag("smoke")
 public class PracticeForm extends BaseTest {
     private PracticeFormPage practiceFormPage = new PracticeFormPage();
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -61,7 +61,7 @@ public class PracticeForm extends BaseTest {
         );
     }
 
-    @Tag("regress")
+
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -76,7 +76,6 @@ public class PracticeForm extends BaseTest {
                                                     String gender,
                                                     String phone,
                                                     String day, String month, String year) {
-
 
         step("Заполняем имя  и фамилию ", () -> {
             practiceFormPage.setFio(firstName, lastName);
@@ -113,7 +112,6 @@ public class PracticeForm extends BaseTest {
 
     // CsvFileSource
 
-    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -128,7 +126,6 @@ public class PracticeForm extends BaseTest {
                                             String gender,
                                             String phone,
                                             String day, String month, String year) {
-
 
         step("Заполняем имя  и фамилию ", () -> {
             practiceFormPage.setFio(firstName, lastName);
@@ -169,7 +166,6 @@ public class PracticeForm extends BaseTest {
     @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     public void errorTest() {
 
-
         step("Заполняем имя  и фамилию ", () -> {
             practiceFormPage.setFio(firstName, lastName);
         });
@@ -196,10 +192,9 @@ public class PracticeForm extends BaseTest {
         checkPracticeFormPage.modalWindowShouldBeVizible();
     }
 
-
     // CsvSource
 
-    @Tag("smoke")
+
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -218,7 +213,6 @@ public class PracticeForm extends BaseTest {
     @ParameterizedTest(name = "Проверка с некорректным именем {0} и фамилией {1}")
     public void negativeSendFormWithoutData(String firstName, String lastName) {
 
-
         step("Заполняем имя  и фамилию ", () -> {
             practiceFormPage.setFio(firstName, lastName);
         });
@@ -228,8 +222,10 @@ public class PracticeForm extends BaseTest {
         checkPracticeFormPage = new CheckPracticeFormPage();
         checkPracticeFormPage.modalWindowShouldNotAppear();
     }
-    @Tag("smoke")
+
+
     @Test
+    @Tag("regress")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
