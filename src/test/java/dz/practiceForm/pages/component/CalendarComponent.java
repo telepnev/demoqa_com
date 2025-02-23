@@ -1,4 +1,4 @@
-package dz.dz6pageobj.pages.component;
+package dz.practiceForm.pages.component;
 
 import org.openqa.selenium.Keys;
 

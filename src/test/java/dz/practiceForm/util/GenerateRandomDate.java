@@ -1,4 +1,4 @@
-package dz.dz6pageobj.util;
+package dz.practiceForm.util;
 
 import com.github.javafaker.Faker;
 
