@@ -5,6 +5,7 @@ import dz.practiceForm.pages.CheckPracticeFormPage;
 import dz.practiceForm.pages.PracticeFormPage;
 import dz.practiceForm.pages.component.CalendarComponent;
 import dz.practiceForm.util.GenerateRandomDate;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,12 @@ public class PracticeForm extends BaseTest {
         );
     }
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @MethodSource")
     @MethodSource()
     @ParameterizedTest(name = "Проверка успешной регистрации при выборе данных {0} {1} {2} {3} {4} {5} {6} {7}")
@@ -86,6 +93,12 @@ public class PracticeForm extends BaseTest {
 
     // CsvFileSource
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @CsvFileSource")
     @CsvFileSource(resources = "/test_data/minimumAmountDataTest.csv")
     @ParameterizedTest(name = "Заполняем поля с тестовыми данными : {0},  {1}, {2}, {3}, {4}, {5}, {6}, {7}")
@@ -118,6 +131,12 @@ public class PracticeForm extends BaseTest {
 
     // CsvSource
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @CsvSource")
     @CsvSource(value = {
             " '' | '' ",
@@ -140,6 +159,11 @@ public class PracticeForm extends BaseTest {
     }
 
     @Test
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     public void practiceFormTest() {
 
         practiceFormPage.setFio(firstName, lastName);
@@ -172,6 +196,11 @@ public class PracticeForm extends BaseTest {
     }
 
     @Test
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     public void errorTest() {
 
         practiceFormPage.setFio(firstName, lastName);
