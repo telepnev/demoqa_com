@@ -14,10 +14,10 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import static io.qameta.allure.Allure.step;
 
 import java.util.stream.Stream;
 
-import static io.qameta.allure.Allure.step;
 
 @Tag("smoke")
 public class PracticeForm extends BaseTest {

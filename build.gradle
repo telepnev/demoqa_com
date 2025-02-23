@@ -46,7 +46,7 @@ tasks.withType(Test) {
     }
 }
 
-task regress(type: Test) {
+task regress_test(type: Test) {
     useJUnitPlatform {
         includeTags("regress", "smoke")
     }
