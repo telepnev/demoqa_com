@@ -2,6 +2,7 @@ package dz.practiceForm.base;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import dz.helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -18,6 +19,10 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
         Selenide.closeWebDriver();
     }
 
