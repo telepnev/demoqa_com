@@ -1,13 +1,14 @@
 package dz.practiceForm.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dz.practiceForm.base.BaseTest;
 import dz.practiceForm.pages.CheckPracticeFormPage;
 import dz.practiceForm.pages.PracticeFormPage;
 import dz.practiceForm.pages.component.CalendarComponent;
 import dz.practiceForm.util.GenerateRandomDate;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.*;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -16,7 +17,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static io.qameta.allure.Allure.step;
 
+@Tag("regress")
 public class PracticeForm extends BaseTest {
     private PracticeFormPage practiceFormPage = new PracticeFormPage();
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -40,8 +43,11 @@ public class PracticeForm extends BaseTest {
 
     @BeforeEach
     public void open() {
-        practiceFormPage.openPracticeFormPage();
-        deletBaner();
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        step("Открываем https://demoqa.com/automation-practice-form", () -> {
+            practiceFormPage.openPracticeFormPage();
+            deletBaner();
+        });
     }
 
 
@@ -55,6 +61,12 @@ public class PracticeForm extends BaseTest {
         );
     }
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @MethodSource")
     @MethodSource()
     @ParameterizedTest(name = "Проверка успешной регистрации при выборе данных {0} {1} {2} {3} {4} {5} {6} {7}")
@@ -65,12 +77,25 @@ public class PracticeForm extends BaseTest {
                                                     String phone,
                                                     String day, String month, String year) {
 
-        practiceFormPage.setFio(firstName, lastName);
-        practiceFormPage.setEmail(email);
-        practiceFormPage.setGender(gender);
-        practiceFormPage.setMobile(phone);
-        calendarComponent.setDate(day, month, year);
-        practiceFormPage.submit();
+
+        step("Заполняем имя  и фамилию ", () -> {
+            practiceFormPage.setFio(firstName, lastName);
+        });
+        step("Заполняем email", () -> {
+            practiceFormPage.setEmail(email);
+        });
+        step("Заполняем gender", () -> {
+            practiceFormPage.setGender(gender);
+        });
+        step("Заполняем phone", () -> {
+            practiceFormPage.setMobile(phone);
+        });
+        step("Заполняем day, month, year", () -> {
+            calendarComponent.setDate(day, month, year);
+        });
+        step("Отправляем заполненную форму", () -> {
+            practiceFormPage.submit();
+        });
 
         // assertions table
         checkPracticeFormPage = new CheckPracticeFormPage();
@@ -81,11 +106,19 @@ public class PracticeForm extends BaseTest {
                 .checkGender(gender)
                 .checkMobile(phone)
                 .checkDateofBirth(day + " " + month + "," + year);
+
         checkPracticeFormPage.closeModal();
+
     }
 
     // CsvFileSource
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @CsvFileSource")
     @CsvFileSource(resources = "/test_data/minimumAmountDataTest.csv")
     @ParameterizedTest(name = "Заполняем поля с тестовыми данными : {0},  {1}, {2}, {3}, {4}, {5}, {6}, {7}")
@@ -96,12 +129,25 @@ public class PracticeForm extends BaseTest {
                                             String phone,
                                             String day, String month, String year) {
 
-        practiceFormPage.setFio(firstName, lastName);
-        practiceFormPage.setEmail(email);
-        practiceFormPage.setGender(gender);
-        practiceFormPage.setMobile(phone);
-        calendarComponent.setDate(day, month, year);
-        practiceFormPage.submit();
+
+        step("Заполняем имя  и фамилию ", () -> {
+            practiceFormPage.setFio(firstName, lastName);
+        });
+        step("Заполняем email", () -> {
+            practiceFormPage.setEmail(email);
+        });
+        step("Заполняем gender", () -> {
+            practiceFormPage.setGender(gender);
+        });
+        step("Заполняем phone", () -> {
+            practiceFormPage.setMobile(phone);
+        });
+        step("Заполняем day, month, year", () -> {
+            calendarComponent.setDate(day, month, year);
+        });
+        step("Отправляем заполненную форму", () -> {
+            practiceFormPage.submit();
+        });
 
         // assertions table
         checkPracticeFormPage = new CheckPracticeFormPage();
@@ -115,9 +161,50 @@ public class PracticeForm extends BaseTest {
         checkPracticeFormPage.closeModal();
     }
 
+    @Test
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
+    public void errorTest() {
+
+
+        step("Заполняем имя  и фамилию ", () -> {
+            practiceFormPage.setFio(firstName, lastName);
+        });
+        step("Заполняем email", () -> {
+            practiceFormPage.setEmail(email);
+        });
+        step("Заполняем gender", () -> {
+            practiceFormPage.setGender(gender);
+        });
+        step("Заполняем phone", () -> {
+            practiceFormPage.setMobile(phone);
+        });
+        step("Заполняем day, month, year", () -> {
+            calendarComponent.setDate(day, month, year);
+        });
+        step("Очищаем ранее заполненные даты календаря", () -> {
+            calendarComponent.clearDate();
+        });
+        step("Отправляем заполненную форму", () -> {
+            practiceFormPage.submit();
+        });
+        // assertions table
+        checkPracticeFormPage = new CheckPracticeFormPage();
+        checkPracticeFormPage.modalWindowShouldBeVizible();
+    }
+
 
     // CsvSource
 
+
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Тест с @CsvSource")
     @CsvSource(value = {
             " '' | '' ",
@@ -131,15 +218,24 @@ public class PracticeForm extends BaseTest {
     @ParameterizedTest(name = "Проверка с некорректным именем {0} и фамилией {1}")
     public void negativeSendFormWithoutData(String firstName, String lastName) {
 
-        practiceFormPage.setFio(firstName, lastName);
-        System.out.println();
-        practiceFormPage.submit();
 
+        step("Заполняем имя  и фамилию ", () -> {
+            practiceFormPage.setFio(firstName, lastName);
+        });
+        step("Отправляем заполненную форму", () -> {
+            practiceFormPage.submit();
+        });
         checkPracticeFormPage = new CheckPracticeFormPage();
         checkPracticeFormPage.modalWindowShouldNotAppear();
     }
 
     @Test
+    @Feature("Practice Form")
+    @Story("Student Registration Form")
+    @Owner("telepnev")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
+    @Disabled("JIRA - 1234567")
     public void practiceFormTest() {
 
         practiceFormPage.setFio(firstName, lastName);
@@ -169,21 +265,6 @@ public class PracticeForm extends BaseTest {
                 .checkAddress(currentAddress)
                 .checkStateandCity(state + " " + city);
         checkPracticeFormPage.closeModal();
-    }
-
-    @Test
-    public void errorTest() {
-
-        practiceFormPage.setFio(firstName, lastName);
-        practiceFormPage.setEmail(email);
-        practiceFormPage.setGender(gender);
-        practiceFormPage.setMobile(phone);
-        calendarComponent.setDate(day, month, year);
-        calendarComponent.clearDate();
-        practiceFormPage.submit();
-        // assertions table
-        checkPracticeFormPage = new CheckPracticeFormPage();
-        checkPracticeFormPage.modalWindowShouldBeVizible();
     }
 
 }
