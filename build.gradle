@@ -29,7 +29,7 @@ dependencies {
             "com.codeborne:selenide:7.7.1",
             'org.junit.jupiter:junit-jupiter:5.11.4',
             'org.slf4j:slf4j-simple:2.0.16',
-            'io.qameta.allure:allure-selenide:$allureVersion',
+            'io.qameta.allure:allure-selenide:2.29.1',
             'org.assertj:assertj-core:3.27.3',
             'io.qameta.allure:allure-selenide:2.29.0',
             'com.github.javafaker:javafaker:1.0.2')
