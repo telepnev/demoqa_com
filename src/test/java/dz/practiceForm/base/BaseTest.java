@@ -1,4 +1,4 @@
-package dz.dz6pageobj.base;
+package dz.practiceForm.base;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

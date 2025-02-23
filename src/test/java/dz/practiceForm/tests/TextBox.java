@@ -1,9 +1,9 @@
-package dz.dz6pageobj.tests;
+package dz.practiceForm.tests;
 
-import dz.dz6pageobj.base.BaseTest;
-import dz.dz6pageobj.pages.CheckTextBoxPage;
-import dz.dz6pageobj.pages.TextBoxPage;
-import dz.dz6pageobj.util.GenerateRandomDate;
+import dz.practiceForm.base.BaseTest;
+import dz.practiceForm.pages.CheckTextBoxPage;
+import dz.practiceForm.pages.TextBoxPage;
+import dz.practiceForm.util.GenerateRandomDate;
 import org.junit.jupiter.api.Test;
 
 public class TextBox extends BaseTest {

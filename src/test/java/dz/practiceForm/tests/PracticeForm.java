@@ -1,10 +1,10 @@
-package dz.dz6pageobj.tests;
+package dz.practiceForm.tests;
 
-import dz.dz6pageobj.base.BaseTest;
-import dz.dz6pageobj.pages.CheckPracticeFormPage;
-import dz.dz6pageobj.pages.PracticeFormPage;
-import dz.dz6pageobj.pages.component.CalendarComponent;
-import dz.dz6pageobj.util.GenerateRandomDate;
+import dz.practiceForm.base.BaseTest;
+import dz.practiceForm.pages.CheckPracticeFormPage;
+import dz.practiceForm.pages.PracticeFormPage;
+import dz.practiceForm.pages.component.CalendarComponent;
+import dz.practiceForm.util.GenerateRandomDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
