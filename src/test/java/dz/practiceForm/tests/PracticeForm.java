@@ -62,6 +62,7 @@ public class PracticeForm extends BaseTest {
     }
 
 
+    @Disabled("JIRA - 1234567")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -111,7 +112,7 @@ public class PracticeForm extends BaseTest {
     }
 
     // CsvFileSource
-
+    @Disabled("JIRA - 1234567")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -158,6 +159,7 @@ public class PracticeForm extends BaseTest {
         checkPracticeFormPage.closeModal();
     }
 
+    @Disabled("JIRA - 1234567")
     @Test
     @Feature("Practice Form")
     @Story("Student Registration Form")
@@ -194,7 +196,7 @@ public class PracticeForm extends BaseTest {
 
     // CsvSource
 
-
+    @Disabled("JIRA - 1234567")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
@@ -231,7 +233,7 @@ public class PracticeForm extends BaseTest {
     @Owner("telepnev")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Testing", url = "https://demoqa.com/automation-practice-form")
-    @Disabled("JIRA - 1234567")
+ //   @Disabled("JIRA - 1234567")
     public void practiceFormTest() {
 
         practiceFormPage.setFio(firstName, lastName);
