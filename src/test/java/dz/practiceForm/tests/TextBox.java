@@ -4,6 +4,7 @@ import dz.practiceForm.base.BaseTest;
 import dz.practiceForm.pages.CheckTextBoxPage;
 import dz.practiceForm.pages.TextBoxPage;
 import dz.practiceForm.util.GenerateRandomDate;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class TextBox extends BaseTest {
@@ -17,6 +18,7 @@ public class TextBox extends BaseTest {
     String permanentAddress = "Moscow village " + generateRandomDate.getCurrentAddress;
 
     @Test
+    @Tag("smoke")
     public void textBoxTest() {
 
         textBoxPage.openTextBoxPage()
