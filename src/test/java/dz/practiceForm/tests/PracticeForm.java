@@ -19,7 +19,7 @@ import static io.qameta.allure.Allure.step;
 import java.util.stream.Stream;
 
 
-@Tag("smoke")
+
 public class PracticeForm extends BaseTest {
     private PracticeFormPage practiceFormPage = new PracticeFormPage();
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -227,7 +227,7 @@ public class PracticeForm extends BaseTest {
 
 
     @Test
-    @Tag("regress")
+    @Tag("smoke")
     @Feature("Practice Form")
     @Story("Student Registration Form")
     @Owner("telepnev")
